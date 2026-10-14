@@ -16,7 +16,7 @@ export default function Portfolio() {
           </h1>
           <div className="space-y-4 max-w-3xl">
             <p className="text-lg text-slate-600 leading-relaxed">
-              久保木 智文（Tomofumi Kuboki）<br />
+              久保木 智史（Tomofumi Kuboki）<br />
               大阪大学 基礎工学部 情報科学科 3年
             </p>
             <p className="text-base text-slate-600 leading-relaxed">
