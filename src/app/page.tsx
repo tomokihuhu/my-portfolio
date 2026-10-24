@@ -41,24 +41,38 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Focus Section */}
-        <section className="p-8 md:p-12 bg-white rounded-3xl shadow-sm border border-slate-200">
+        {/* Focus Project Section (画像を配置して2カラム化) */}
+        <section className="p-8 md:p-12 bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="flex items-center gap-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-500"></span>
             <span className="text-xs font-bold tracking-widest uppercase text-slate-500">Focus Project</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">フルスタック学習管理システム「strict-study-app」</h2>
-          <p className="text-sm font-medium text-blue-600 mb-6">現在公開中・機能拡張フェーズ</p>
-          <p className="text-slate-600 leading-relaxed mb-8">
-            「既存の学習管理ツールは自由度が高く、つい甘えが出てしまう」という自身の課題から、より厳密（strict）に学習をトラッキングする仕組みを自作。Next.js、TiDB (MySQL) を用いて開発し、Vercelにて一般公開しています。
-          </p>
-          <Link 
-            href="https://strict-study-app-ten.vercel.app/" 
-            target="_blank"
-            className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 transition"
-          >
-            本番環境を見る &rarr;
-          </Link>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">フルスタック学習管理<br/>「strict-study-app」</h2>
+              <p className="text-sm font-medium text-blue-600 mb-6">現在公開中・機能拡張フェーズ</p>
+              <p className="text-slate-600 leading-relaxed mb-8">
+                「既存の学習管理ツールは自由度が高く、つい甘えが出てしまう」という自身の課題から、より厳密（strict）に学習をトラッキングする仕組みを自作。Next.js、TiDB (MySQL) を用いて開発し、Vercelにて一般公開しています。
+              </p>
+              <Link 
+                href="https://strict-study-app-ten.vercel.app/" 
+                target="_blank"
+                className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-700 transition"
+              >
+                本番環境を見る &rarr;
+              </Link>
+            </div>
+            
+            {/* ダッシュボード画像のプレビュー */}
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
+              <img 
+                src="/dashboard.png" 
+                alt="strict-study-app Dashboard" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </section>
 
         {/* Works Section */}
@@ -77,19 +91,23 @@ export default function Portfolio() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-              <div className="w-10 h-10 bg-slate-100 flex items-center justify-center rounded-xl font-bold text-slate-900">02</div>
-              <h3 className="text-xl font-bold">モダンな技術構成とデプロイ</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                初期はローカル環境（SQLite）で構築し、本番公開を見据えてサーバーレスのTiDB Cloudへデータベースを移行。NextAuthを用いた認証やTypeORMによるデータ操作など、モダンな技術を組み合わせてVercelへのデプロイまでを一人で完遂しました。
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4 relative overflow-hidden group">
+              <div className="w-10 h-10 bg-slate-100 flex items-center justify-center rounded-xl font-bold text-slate-900 relative z-10">02</div>
+              <h3 className="text-xl font-bold relative z-10">ストイックなUI/UX</h3>
+              <p className="text-sm text-slate-600 leading-relaxed relative z-10">
+                ダークテーマを基調とし、集中を妨げないミニマルなUIを実装。タイマー機能（集中モード）を設け、学習中の甘えを許さない設計をTailwind CSSを用いて構築しました。
               </p>
+              {/* タイマー画像を背景に薄くブレンド */}
+              <div className="absolute -bottom-10 -right-10 w-48 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                <img src="/timer.png" alt="Timer UI" className="w-full h-auto rounded-lg shadow-xl transform rotate-12" />
+              </div>
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
               <div className="w-10 h-10 bg-slate-100 flex items-center justify-center rounded-xl font-bold text-slate-900">03</div>
-              <h3 className="text-xl font-bold">現在の状況と今後の展望</h3>
+              <h3 className="text-xl font-bold">モダンな技術構成</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                現在はベースとなる記録・管理機能が稼働し、Web上に公開中。今後は実際の自分の学習で使用しながら、「どうすればよりストイックに学習を継続できるか」という視点でUIの改善や機能拡張を続けていく予定です。
+                初期はローカル環境（SQLite）で構築し、本番公開を見据えてサーバーレスのTiDB Cloudへデータベースを移行。NextAuthを用いた認証やTypeORMによるデータ操作など、Vercelへのデプロイまでを一人で完遂しました。
               </p>
             </div>
           </div>
